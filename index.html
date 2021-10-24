@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(1550,700);
+        document.body.appendChild(app.view);
+        
+        var pic1 = new PIXI.Sprite.fromImage("res/1.jpg");
+        app.stage.addChild(pic1);
+        var pic2 = new PIXI.Sprite.fromImage("res/2.jpg");
+        app.stage.addChild(pic2);
+        var pic3 = new PIXI.Sprite.fromImage("res/3.jpg");
+        app.stage.addChild(pic3);
+        var pic4 = new PIXI.Sprite.fromImage("res/4.jpg");
+        app.stage.addChild(pic4);
+        var qsy = new PIXI.Sprite.fromImage("res/qsy.jpg");
+        app.stage.addChild(qsy);
+        var down = new PIXI.Sprite.fromImage("res/down.jpg");
+        app.stage.addChild(down);
+        pic1.visible=true;
+        pic1.width=1550;
+        pic1.height=700;
+        pic2.visible=false;
+        pic2.width=1550;
+        pic2.height=700;
+        pic3.visible=false;
+        pic3.width=1550;
+        pic3.height=700;
+        pic4.visible=false;
+        pic4.width=1550;
+        pic4.height=700;
+        qsy.y=400;
+        qsy.x=1100;
+        qsy.width=300;
+        qsy.height=150;
+        down.width=100;
+        down.height=100;
+        down.x=950;
+        down.y=400;
+        
+        down.interactive = true;
+		down.on("click",td);
+        
+        function td(){
+        	if(pic1.visible==true){
+        		pic1.visible=false;
+        		pic2.visible=true;
+        	}
+        	else if(pic2.visible==true){
+        		pic2.visible=false;
+        		pic3.visible=true;
+        	}
+        	else if(pic3.visible==true){
+        		pic3.visible=false;
+        		pic4.visible=true;
+        	}
+        	else if(pic4.visible==true){
+        		pic4.visible=false;
+        		pic1.visible=true;
+        	}
+        }
+    </script>
+</body>
+</html>
